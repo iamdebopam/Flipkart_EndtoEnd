@@ -18,9 +18,10 @@ public class SearchPage extends Library {
     @FindBy(xpath = "//input[@name='q']")
     WebElement SearchText;
 
-    @FindBy(xpath = "//html[@lang='en']")
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[1]/div/div/div/div/div/div/div/div/div[2]")
     WebElement Homepage;
-    @FindBy(xpath = "//html[@class='fonts-loaded']")
+
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[3]")
     WebElement Searchresult;
 
     public void Search(String text){
