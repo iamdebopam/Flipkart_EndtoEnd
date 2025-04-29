@@ -2,6 +2,8 @@ package com.Pages;
 
 import com.Baseclass.Library;
 import com.ResuableFunctions.SeleniumResuable;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,19 +11,30 @@ import org.openqa.selenium.support.PageFactory;
 public class SearchPage extends Library {
     SeleniumResuable se;
 
-    public SearchPage(){
-       this.driver=driver;
-       PageFactory.initElements(driver,this);
+    public SearchPage(WebDriver driver){
+       this.driver= Library.driver;
+       PageFactory.initElements(Library.driver,this);
     }
-
     @FindBy(xpath = "//input[@name='q']")
     WebElement SearchText;
+
+    @FindBy(xpath = "//html[@lang='en']")
+    WebElement Homepage;
+    @FindBy(xpath = "//html[@class='fonts-loaded']")
+    WebElement Searchresult;
+
     public void Search(String text){
         se=new SeleniumResuable(driver);
         se.EnterValue(SearchText,text);
     }
-
-
-
-
+    public void clickSearch(){
+        SearchText.sendKeys(Keys.ENTER);
+    }
+    public void homeScreen(){
+        System.out.println(Homepage.isDisplayed());
+    }
+    public void Result(){
+        System.out.println(Searchresult.isDisplayed());
+        System.out.println(driver.getTitle());
+    }
 }
