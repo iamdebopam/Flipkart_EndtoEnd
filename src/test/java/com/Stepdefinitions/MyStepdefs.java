@@ -48,6 +48,6 @@ public class MyStepdefs extends Library {
     }
     @Then("Print the Third result and keep it in the console")
     public void printTheThirdResultAndKeepItInTheConsole() {
-        sp.printThirdResult();
+        sp.printSecondResult();
     }
 }

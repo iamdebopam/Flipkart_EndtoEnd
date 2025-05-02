@@ -26,11 +26,11 @@ public class SearchPage extends Library {
     @FindBy(xpath = "//*[@id=\"container\"]/div/div[3]")
     WebElement Searchresult;
 
-    @FindBy(xpath = "//*") //need to locate xpath
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[3]/div[1]/div") //need to locate xpath
     List<WebElement> entireResult;
 
-    @FindBy(xpath = "") //need to locate xpath
-    WebElement thirdResult;
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[3]/div[1]/div[1]") //need to locate xpath
+    WebElement secondResult;
 
     public void Search(String text){
         se=new SeleniumResuable(driver);
@@ -49,7 +49,7 @@ public class SearchPage extends Library {
     public void printEntireResult(){
         se.MultipleGetText(entireResult);
     }
-    public void printThirdResult(){
-        se.Getvalue(thirdResult);
+    public void printSecondResult(){
+        se.Getvalue(secondResult);
     }
 }
