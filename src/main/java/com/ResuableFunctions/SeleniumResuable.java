@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class SeleniumResuable extends Library {
 
@@ -53,5 +54,18 @@ public class SeleniumResuable extends Library {
         catch (Exception e) {
             System.out.println("Screenshot not found");
         }
+    }
+    public void MultipleGetText(List<WebElement> element){
+        List<WebElement> text = element;
+        System.out.println(text.size());
+        for (WebElement textCount: text){
+            String totalList=textCount.getText();
+            System.out.println("****************************************************");
+            System.out.println(totalList);
+        }
+    }
+    public void Getvalue(WebElement element){
+         String text=element.getText();
+         System.out.println(text);
     }
 }

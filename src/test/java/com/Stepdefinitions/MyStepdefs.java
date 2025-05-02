@@ -40,4 +40,14 @@ public class MyStepdefs extends Library {
     public void itShouldNavigateToTheSearchResultPageAndDisplayTheRelevantDetails() {
         sp.Result();
     }
+
+    @Then("Extract the Results and print in console")
+    public void extractTheResultsAndPrintInConsole() {
+        sp.printEntireResult();
+        System.out.println("******************************************");
+    }
+    @Then("Print the Third result and keep it in the console")
+    public void printTheThirdResultAndKeepItInTheConsole() {
+        sp.printThirdResult();
+    }
 }

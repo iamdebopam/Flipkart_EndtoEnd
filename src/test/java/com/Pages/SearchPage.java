@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class SearchPage extends Library {
     SeleniumResuable se;
 
@@ -24,6 +26,12 @@ public class SearchPage extends Library {
     @FindBy(xpath = "//*[@id=\"container\"]/div/div[3]")
     WebElement Searchresult;
 
+    @FindBy(xpath = "//*") //need to locate xpath
+    List<WebElement> entireResult;
+
+    @FindBy(xpath = "") //need to locate xpath
+    WebElement thirdResult;
+
     public void Search(String text){
         se=new SeleniumResuable(driver);
         se.EnterValue(SearchText,text);
@@ -37,5 +45,11 @@ public class SearchPage extends Library {
     public void Result(){
         System.out.println(Searchresult.isDisplayed());
         System.out.println(driver.getTitle());
+    }
+    public void printEntireResult(){
+        se.MultipleGetText(entireResult);
+    }
+    public void printThirdResult(){
+        se.Getvalue(thirdResult);
     }
 }
